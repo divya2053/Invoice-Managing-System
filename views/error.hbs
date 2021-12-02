@@ -1,0 +1,7 @@
+<input type="hidden" id='input' value="{{msg}}">
+<input type = "hidden" id='redirect' value ="{{redirect}}" >
+
+<script>
+    alert(document.getElementById('input').value);
+    window.location.href= document.getElementById('redirect').value;
+</script>

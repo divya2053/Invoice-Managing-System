@@ -1,0 +1,54 @@
+<title> Admin Dashboard </title>
+<div class="container-fluid">
+    <div class="row dash-row">
+        <div class="col-xl-4">
+            <a href="/invoice/list">
+            <div class="stats stats-primary">
+                <h3 class="stats-title"> Unpaid Invoices </h3>
+                <div class="stats-content">
+                    <div class="stats-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <div class="stats-data">
+                        <div class="stats-number">{{result}}</div>
+                        <div class="stats-change">
+                        </div>
+                    </div>
+                </div>
+            </div></a>
+        </div>
+        <div class="col-xl-4">
+            <a href = "/invoice/paid">
+                <div class="stats stats-success ">
+                    <h3 class="stats-title"> Paid Invoices </h3>
+                    <div class="stats-content">
+                        <div class="stats-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="stats-data">
+                            <div class="stats-number">{{result2}}</div>
+                            <div class="stats-change">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-xl-4">
+        <a href="/customer/list">
+            <div class="stats stats-danger">
+                <h3 class="stats-title"> Customers </h3>
+                <div class="stats-content">
+                    <div class="stats-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stats-data">
+                        <div class="stats-number">{{result4}}</div>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+
+    </div>
+</div>
