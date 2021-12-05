@@ -61,7 +61,7 @@ router.get("/success/:id",(req,res)=>{
              };
              var newvalues = {
                 $set: {
-                    isPaid: "True",
+                    isPaid: "true",
                     owed:invoice.amount
                 }
             };
