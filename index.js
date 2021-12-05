@@ -250,8 +250,9 @@ app.get("/logout", (req, res) => {
 
 app.post("/create-checkout-session/:id", middleware, async (req, res) => {
 
-  console.log(req.params.id);
 
+  var fullUrl = req.protocol + '://' + req.get('host');
+  console.log(fullUrl);
   Invoice.findById(req.params.id).then(async (invoice) => {
     console.log(invoice);
     var amount = (parseInt(invoice.amount) - parseInt(invoice.owed)) * 100;
@@ -268,8 +269,8 @@ app.post("/create-checkout-session/:id", middleware, async (req, res) => {
         quantity: 1,
       },],
       mode: "payment",
-      success_url: "https://lop-invoice-system.herokuapp.com/user/success/" + req.params.id,
-      cancel_url: "https://lop-invoice-system.herokuapp.com/user/failure",
+      success_url: fullUrl+"/user/success/" + req.params.id,
+      cancel_url: fullUrl+"/user/failure",
     });
 
     res.json({

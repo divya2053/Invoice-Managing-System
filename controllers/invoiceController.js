@@ -73,6 +73,8 @@ function insertRecord(req, res) {
 }
 
 function updateRecord(req, res) {
+  console.log('Invoice=>',req.body);
+  req.body.isPaid = (req.body.owed === req.body.amount);
   Invoice.findOneAndUpdate(
     { _id: req.body._id },
     req.body,
