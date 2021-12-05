@@ -49,8 +49,8 @@ router.get("/searchcustomer", (req, res) => {
 function insertRecord(req, res) {
 
 
-  Customer.findOne({fullName:req.body.invoice_customer}).then(customer=>{
-      console.log(customer);
+  Customer.findOne({email:req.body.invoice_customer}).then(customer=>{
+      console.log('customer=>',customer);
       if(customer){
       var invoice = new Invoice();
       invoice.invoice_customer = customer.email;
@@ -59,7 +59,8 @@ function insertRecord(req, res) {
       invoice.notes = req.body.notes;
       invoice.amount = req.body.amount || "0";
       invoice.owed = req.body.owed || "0";
-      invoice.isPaid = req.body.amount == req.body.owed ? "True" : "False";
+      invoice.isPaid = req.body.amount == req.body.owed ? true : false;
+
       // invoice.invoice_customer = req.body.invoice_customer;
       invoice.save((err, doc) => {
         if (!err) res.redirect("invoice/list");
@@ -98,6 +99,7 @@ function updateRecord(req, res) {
 router.get("/list", (req, res) => {
   Invoice.find((err, docs) => {
     if (!err) {
+      console.log('Successfully got all invoices=>', docs)
       res.render("invoice/list", {
         list: docs
       });

@@ -43,7 +43,7 @@
             <label for="invoice_customer">Select Client</label>
             <select class="selectpicker" data-live-search="true" name="invoice_customer" id="invoice_customer">
                 {{#each customers}}
-                <option selected>{{fullName}}</option>
+                    <option selected value={{email}}>{{fullName}}({{email}})</option>
                 {{/each}}
             </select>
 
